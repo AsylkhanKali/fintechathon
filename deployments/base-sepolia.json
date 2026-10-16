@@ -1,0 +1,11 @@
+{
+  "MockPriceFeed": "0x77681210D03afc2eD793CEB21A597CDC1CED3309",
+  "MockUSDC": "0xc637acDe7e58A35510080e0544B3a731db8A509c",
+  "MockYieldVault": "0x65Ce1bB77186BeC362Ca165787487404ddFba843",
+  "Treasury": "0xF265BbC1bdFeEa96e745225B7dd3f8E0e895c727",
+  "agent": "0xAEEd18B3485578fAf9262E4548ba139bC672182D",
+  "chainId": 84532,
+  "network": "base-sepolia",
+  "owner": "0x1eCCba43133d590E85F682B059bF328697e8033b",
+  "startBlock": 48197129
+}
