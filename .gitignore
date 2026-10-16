@@ -6,3 +6,6 @@
 *.pdf
 
 .DS_Store
+
+# Foundry broadcast lock files
+*.recovery.lock
