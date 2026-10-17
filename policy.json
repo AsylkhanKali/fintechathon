@@ -1,0 +1,129 @@
+{
+  "company": {
+    "name": "DemoCo"
+  },
+  "buffer": {
+    "months": 2,
+    "obligationIds": [
+      "payroll",
+      "vendors"
+    ]
+  },
+  "risk": {
+    "depeg": {
+      "warnBelow": 0.995,
+      "exitBelow": 0.98,
+      "sustainMinutes": 30
+    },
+    "vault": {
+      "maxUtilizationBps": 9000,
+      "exitOnWithdrawalsPaused": true
+    },
+    "staleFeedMinutes": 120
+  },
+  "sweep": {
+    "minExcessUsd": 50000,
+    "checkIntervalMinutes": 60,
+    "maxVaultShareBps": 6000
+  },
+  "limits": {
+    "approvalThresholdUsd": 40000,
+    "perPaymentCapUsd": 100000,
+    "dailyPaymentCapUsd": 600000,
+    "maxVaultShareBps": 6000
+  },
+  "vaults": [
+    {
+      "name": "MockYieldVault",
+      "address": "0x65Ce1bB77186BeC362Ca165787487404ddFba843"
+    }
+  ],
+  "obligations": [
+    {
+      "id": "payroll",
+      "type": "payroll",
+      "schedule": {
+        "frequency": "monthly",
+        "dayOfMonth": 1
+      },
+      "payees": [
+        { "name": "Engineering contributor 01", "address": "0xb16D05F45AAf3b276345e9bB755906F67Bd9040f", "amount": 9000 },
+        { "name": "Engineering contributor 02", "address": "0x5C7b429F6752d847c1193BbC8F3D6eA7d639CAE5", "amount": 9000 },
+        { "name": "Engineering contributor 03", "address": "0x4043680d02a8A5777a967f2Aad21Fb45Df40537D", "amount": 9000 },
+        { "name": "Engineering contributor 04", "address": "0xA089307349339A075a7E56b0B09c2FBC21e26345", "amount": 9000 },
+        { "name": "Engineering contributor 05", "address": "0xeC390869aF119e02295511b3F6B84D635674F57c", "amount": 9000 },
+        { "name": "Engineering contributor 06", "address": "0x639b3eE6D70874ed7caaE067473D939B076c2FA5", "amount": 9000 },
+        { "name": "Engineering contributor 07", "address": "0x5D161Bef263f8597F8EE92bb4efC7d18102535af", "amount": 9000 },
+        { "name": "Engineering contributor 08", "address": "0x0D06DCdE1741351D0FDF7D82dfEe6d9fF41b5c75", "amount": 9000 },
+        { "name": "Engineering contributor 09", "address": "0xA506b873b466804f80F5E30497bDe79AD0B5eA96", "amount": 9000 },
+        { "name": "Engineering contributor 10", "address": "0x53f83Ef25AB9dd434c131EF39a4cD0187d64001B", "amount": 9000 },
+        { "name": "Engineering contributor 11", "address": "0x4Cc1B8A0b0B8Ca5CDD1f1C135c3ab74820cd209B", "amount": 9000 },
+        { "name": "Engineering contributor 12", "address": "0x43e98d6950423e81e248551387Ec935D7bE4D679", "amount": 9000 },
+        { "name": "Engineering contributor 13", "address": "0x529337f9e9a456df24c2CeF4a8aECe6b74277075", "amount": 9000 },
+        { "name": "Engineering contributor 14", "address": "0x89Aa9A7988964Dae6e7F0E2870C9Ed5BF2ec7626", "amount": 9000 },
+        { "name": "Engineering contributor 15", "address": "0xa7c61e76B1a3082238fd1F9e677Ea3280f82704D", "amount": 9000 },
+        { "name": "Engineering contributor 16", "address": "0x8ECE6143d1e27320CA4B8756a1d172407618293B", "amount": 9000 },
+        { "name": "Engineering contributor 17", "address": "0x0f4014DE3ee8a050718002c7eD041793BFf8dFB0", "amount": 9000 },
+        { "name": "Engineering contributor 18", "address": "0x29e811a35fe1dAd5b808A9c77E2562B98825c779", "amount": 9000 },
+        { "name": "Engineering contributor 19", "address": "0x3A2B0EEB5F03b0D75841E1cbcBF971F2C6e867eE", "amount": 9000 },
+        { "name": "Engineering contributor 20", "address": "0xf1843c7c1263E40Ed0a68da666f3Bd0A621733d2", "amount": 9000 },
+        { "name": "Engineering contributor 21", "address": "0x166c2Ad98Bd0b11110241Aa651da8e8C9cC5a0e9", "amount": 9000 },
+        { "name": "Engineering contributor 22", "address": "0x2eEC7b1c4869b3f93504A7c3EEbDEd7E360De9FE", "amount": 9000 },
+        { "name": "Engineering contributor 23", "address": "0xB4F57a8dEB576eE617222E736D41df82D58059b8", "amount": 9000 },
+        { "name": "Engineering contributor 24", "address": "0x3275A0E9d29EfAcBfAfE6CE266a3933C4534E4B4", "amount": 9000 },
+        { "name": "Engineering contributor 25", "address": "0xbAe5e517Bd7E35254D8F70d868156C899F8c1e11", "amount": 9000 },
+        { "name": "Research contributor 01", "address": "0x4ff444B7B34539dA7074B79Ce70bda46522C4d0B", "amount": 8500 },
+        { "name": "Research contributor 02", "address": "0xeB5A520380C179EB33Cf7c32A4cB36fcB34B285D", "amount": 8500 },
+        { "name": "Research contributor 03", "address": "0xd285570269eFF762298Ac64C5243A3b9B76d5045", "amount": 8500 },
+        { "name": "Research contributor 04", "address": "0xF214AFBE5EC4d70CC29A30b3347cFb2bf4Dcd3C4", "amount": 8500 },
+        { "name": "Research contributor 05", "address": "0x75FFc40129850530d58526426225Fb5551450ffa", "amount": 8500 },
+        { "name": "Research contributor 06", "address": "0x23d20C9E5bcB83679066B9303783De64841a04Ea", "amount": 8500 },
+        { "name": "Research contributor 07", "address": "0xe1af8a2b2Ee797D20f39D826fDf30aFe810Cb8bB", "amount": 8500 },
+        { "name": "Research contributor 08", "address": "0x510EC3f2B2c2F1151fea7A1dff19ED874C1c3ec7", "amount": 8500 },
+        { "name": "Research contributor 09", "address": "0xd60eE82268dc884246AD35649CC4FEa7E20a49a3", "amount": 8500 },
+        { "name": "Research contributor 10", "address": "0xA160a176ff4DaED0447dDA5B418CB5047Eee21Cc", "amount": 8500 },
+        { "name": "Product & Design contributor 01", "address": "0xF6ebd5285604695731f7e3219B4fEc3c3d37EC96", "amount": 8000 },
+        { "name": "Product & Design contributor 02", "address": "0x95c3864e1F3EB78A18DE171233417CF2913E7411", "amount": 8000 },
+        { "name": "Product & Design contributor 03", "address": "0xa3959BC1d4741ed81a5cEc94984fBCa73626f91c", "amount": 8000 },
+        { "name": "Product & Design contributor 04", "address": "0x5334Ffa3c7b6bd106bF779E6517966B8506C405C", "amount": 8000 },
+        { "name": "Product & Design contributor 05", "address": "0xe6e6089b6109110A52e595EDdB3308BbA243f599", "amount": 8000 },
+        { "name": "Product & Design contributor 06", "address": "0x233a1160967b35aB34DD6cA062d05a8552154a4B", "amount": 8000 },
+        { "name": "Product & Design contributor 07", "address": "0x6bAE3883A41ebDc1Ab12f17afa72B8a6583769d1", "amount": 8000 },
+        { "name": "Product & Design contributor 08", "address": "0x7cab224eB07CC17F52270199D6F4f22aD0324eac", "amount": 8000 },
+        { "name": "Growth & Marketing contributor 01", "address": "0xaBd5c7da7a49Df895df8c4858A663a15C446d53C", "amount": 6500 },
+        { "name": "Growth & Marketing contributor 02", "address": "0x63F264CC0F73668D8e8945C82006eE4B4A1a6F96", "amount": 6500 },
+        { "name": "Growth & Marketing contributor 03", "address": "0x1509fa55960a4Ff31b4768130abbCc9BcF85656E", "amount": 6500 },
+        { "name": "Growth & Marketing contributor 04", "address": "0x611bBEDC61f8Dec33e2A5B841c13e174FeB4C6c2", "amount": 6500 },
+        { "name": "Growth & Marketing contributor 05", "address": "0x8449Ac29AaCFc721b02b0a6F9c0c4Cf1De85A68B", "amount": 6500 },
+        { "name": "Growth & Marketing contributor 06", "address": "0xdfcEdB626B9C08E9A586672441ea3a4D36291340", "amount": 6500 },
+        { "name": "Growth & Marketing contributor 07", "address": "0x68e7136Cd0A94beab4349b6fCaB43e2Bcd096Bb1", "amount": 6500 },
+        { "name": "Growth & Marketing contributor 08", "address": "0xb56b22B284fe1D5F9e382D9BF3a759Cc5b2cBdE2", "amount": 6500 },
+        { "name": "Growth & Marketing contributor 09", "address": "0x0f230a2ed2Cd9862a1621Cf6Ca6D3478543De461", "amount": 6500 },
+        { "name": "Growth & Marketing contributor 10", "address": "0x6e22e2DE1d270ED2B89F5Cc64D5281e0536DCC7b", "amount": 6500 },
+        { "name": "Operations & Finance contributor 01", "address": "0x78072ab7453a4E558656A2fB682Fe2Ef9C478445", "amount": 6000 },
+        { "name": "Operations & Finance contributor 02", "address": "0xf33f6e35FB9bAc4818eAc74F77aFefe7fa65E704", "amount": 6000 },
+        { "name": "Operations & Finance contributor 03", "address": "0x34A5511Ea0F6A5d3aAb495A6ea52Fcb2a14c942c", "amount": 6000 },
+        { "name": "Operations & Finance contributor 04", "address": "0xDBBA136682cC4d69d776f4A47509b8c05A46233E", "amount": 6000 },
+        { "name": "Operations & Finance contributor 05", "address": "0xdc6242a072A62BB88341613a62E8b48423A897A6", "amount": 6000 },
+        { "name": "Operations & Finance contributor 06", "address": "0xd432aC173b0964F6F03B347eD711d6Ecf76c5586", "amount": 6000 },
+        { "name": "Operations & Finance contributor 07", "address": "0x81720ae0D55729B9fCe40eD7218407018b0207d9", "amount": 6000 }
+      ]
+    },
+    {
+      "id": "vendors",
+      "type": "recurring",
+      "schedule": {
+        "frequency": "monthly",
+        "dayOfMonth": 15
+      },
+      "payees": [
+        { "name": "Cloud hosting and blockchain node provider", "address": "0x14B04093Ad2d0bC82acC864079a0AA6c470baac7", "amount": 35000 },
+        { "name": "Security audit firm (retainer)", "address": "0xE00A68F61DF988343B7c1B1ddBdf178b1d012938", "amount": 25000 },
+        { "name": "Freelance contractors (design, translation)", "address": "0x145D6fDaFF7f475d3a22d7d4A1C110CeA79b78f1", "amount": 20000 },
+        { "name": "Legal and compliance counsel", "address": "0xcd24Eb60827F11052EaC89629B4Fdc29d9012F14", "amount": 15000 },
+        { "name": "Coworking space", "address": "0x7EA270155D308542d1a22a8423873535Da0cfBf6", "amount": 12000 },
+        { "name": "Data and analytics APIs", "address": "0xab08B41259A1b4ffA87A97F014A418071A080655", "amount": 8000 }
+      ]
+    }
+  ]
+}
