@@ -708,11 +708,11 @@ def process_adhoc_invoice(
             return res
         return {"status": "REJECTED_POLICY", "tx_hash": None}
 
-    # Check 4: Strict Unscheduled (Ad-Hoc) Invoice Logic
-    # Override the generous $40k scheduled threshold with a strict $0 threshold for off-cycle bills
-    strict_adhoc_threshold = 0.0  
+    # Check 4: Unscheduled (Ad-Hoc) Invoice Logic
+    # Asylkhan's approved logic: Ad-hoc invoices < $40k execute autonomously (Tier 0).
+    # The UI will cross-reference the amount against the vendor's profile and flag anomalies (Tier 1).
 
-    if amount > strict_adhoc_threshold:
+    if amount >= approval_threshold:
         action = {
             "action": "REQUEST_APPROVAL",
             "tier": 2,
