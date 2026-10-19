@@ -97,7 +97,11 @@ MINIMAL_FEED_ABI = [
 # ==============================================================================
 w3 = Web3(Web3.HTTPProvider(RPC_URL))
 
-with open("Treasury.json", "r") as f:
+abi_path = "contracts/abi/Treasury.json"
+if not os.path.exists(abi_path):
+    abi_path = "Treasury.json"
+
+with open(abi_path, "r") as f:
     TREASURY_ABI = json.load(f)
 
 treasury_contract = w3.eth.contract(
@@ -928,7 +932,7 @@ def run_all_tests():
     # ------------------------------------------------------------------
     print(f"\n{'=' * 70}")
     print("🔄 RUNNING TEST 8: Unscheduled Ad-Hoc Invoice Escalation")
-    print("🎯 Expected: REQUEST_APPROVAL (Tier 2) for $8,000 off-cycle invoice.")
+    print("🎯 Expected: Tier 0 for $8,000 off-cycle invoice.")
     print(f"📊 State -> Day: 10 (Off-cycle) | Invoice: $8,000 | Vendor: Allowlisted")
     print(f"{'-' * 70}")
 
