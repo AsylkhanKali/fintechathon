@@ -16,15 +16,15 @@ Even if the off-chain AI agent or hot-key is compromised, manipulated by prompt 
 
 | Path | Description |
 |---|---|
-| `src/Treasury.sol` | The core vault contract enforcing roles, limits, allowlists, and emergency exits. |
-| `src/mocks/` | Zero-value mocks: `MockUSDC`, `MockYieldVault`, `MockPriceFeed`. |
-| `script/` | Foundry deployment and demo seeding scripts. |
-| `test/` | 75 Foundry tests (C1-C12) and the stateful fuzzing invariant suite. |
-| `agent/engine.py` | The main execution agent (Risk Monitor, Sweep Logic, Executor, Logger). |
-| `agent/engine_logic.py` | Deterministic treasury math (buffers, caps, sweeping). |
-| `agent/explainer.py` | LLM module for generating plain-English executive summaries of actions. |
-| `agent/app.py` | The Streamlit executive dashboard. |
-| `agent/policy.json` | The founder-defined rule configuration (caps, schedules, allowlists). |
+| `contracts/src/Treasury.sol` | The core vault contract enforcing roles, limits, allowlists, and emergency exits. |
+| `contracts/src/mocks/` | Zero-value mocks: `MockUSDC`, `MockYieldVault`, `MockPriceFeed`. |
+| `contracts/script/` | Foundry deployment and demo seeding scripts. |
+| `contracts/test/` | 75 Foundry tests (C1-C12) and the stateful fuzzing invariant suite. |
+| `engine.py` | The main execution agent (Risk Monitor, Sweep Logic, Executor, Logger). |
+| `engine_logic.py` | Deterministic treasury math (buffers, caps, sweeping). |
+| `explainer.py` | LLM module for generating plain-English executive summaries of actions. |
+| `app.py` | The Streamlit executive dashboard. |
+| `policy.json` | The founder-defined rule configuration (caps, schedules, allowlists). |
 | `deployments/` | Contract addresses, owner, agent, and start block data. |
 
 ---
