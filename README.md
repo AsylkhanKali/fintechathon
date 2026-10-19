@@ -1,5 +1,5 @@
 [readme (3).md](https://github.com/user-attachments/files/33667166/readme.3.md)
-# 🤖 Autonomous Treasury Agent
+# 🤖 Four Eyes: Autonomous Treasury Agent
 
 > **Compliance Declaration:** All transactions use zero-value testnet tokens; no real-value cryptocurrency or stablecoins were used.
 > **Networks:** Base Sepolia (chain 84532) and local Anvil (chain 31337, offline fallback).
