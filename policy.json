@@ -44,7 +44,7 @@
       "type": "payroll",
       "schedule": {
         "frequency": "monthly",
-        "dayOfMonth": 19
+        "dayOfMonth": 1
       },
       "payees": [
         { "name": "Engineering contributor 01", "address": "0xb16D05F45AAf3b276345e9bB755906F67Bd9040f", "amount": 9000 },
