@@ -85,7 +85,8 @@ def plan_treasury_actions(
     available_vault_room = max(0.0, max_vault_allowed - vault_balance)
 
     if excess_cash >= sweep_min and not risk_warn and available_vault_room > 0:
-        deposit_amount = min(excess_cash, available_vault_room)
+        capped_room = max(0.0, available_vault_room - 1.0) if available_vault_room < excess_cash else available_vault_room
+        deposit_amount = min(excess_cash, capped_room)
         cap_note = f" (capped at {max_share_bps/100:.0f}% max vault share)" if deposit_amount < excess_cash else ""
         planned_actions.append({
             "action": "DEPOSIT_TO_VAULT",
