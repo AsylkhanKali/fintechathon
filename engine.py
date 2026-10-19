@@ -285,7 +285,7 @@ def load_and_hash_policy(filepath: str = "policy.json", verify_onchain: bool = F
 
     # PRD §4: Canonical JSON (sorted keys, no whitespace) -> keccak256
     canonical_json = json.dumps(policy_data, separators=(",", ":"), sort_keys=True)
-    policy_hash = "0x" + Web3.keccak(text=canonical_json).hex().lstrip("0x")
+    policy_hash = "0x" + Web3.keccak(text=canonical_json).hex().removeprefix("0x")
 
     print("\n--- POLICY LOADED ---")
     print(f"Company:            {policy_data['company']['name']}")
@@ -476,7 +476,7 @@ def execute_on_chain(action: dict, skip_simulation: bool = False) -> dict:
             tx = tx_call.build_transaction(tx_params)
             signed_tx = w3.eth.account.sign_transaction(tx, private_key=AGENT_KEY)
             tx_hash_bytes = w3.eth.send_raw_transaction(signed_tx.raw_transaction)
-            tx_hash_hex = "0x" + tx_hash_bytes.hex().lstrip("0x")
+            tx_hash_hex = "0x" + tx_hash_bytes.hex().removeprefix("0x")
 
             print(f"   [WEB3 BROADCAST] Tx Hash: {tx_hash_hex} (waiting for receipt...)")
             receipt = w3.eth.wait_for_transaction_receipt(tx_hash_bytes, timeout=120)
