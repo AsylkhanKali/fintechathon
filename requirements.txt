@@ -1,0 +1,6 @@
+streamlit>=1.41
+web3
+pandas
+altair
+openai
+python-dotenv
