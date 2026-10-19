@@ -459,11 +459,16 @@ def execute_on_chain(action: dict, skip_simulation: bool = False) -> dict:
             base_fee = latest_block.get("baseFeePerGas", w3.to_wei("0.1", "gwei"))
             priority_fee = w3.to_wei("0.1", "gwei")
 
+            if action_type == "PAY_BATCH":
+                gas_limit = int(tx_call.estimate_gas({"from": account.address}) * 1.3)
+            else:
+                gas_limit = 250_000
+
             tx_params = {
                 "chainId": chain_id,
                 "from": account.address,
                 "nonce": nonce,
-                "gas": 800_000 if action_type == "PAY_BATCH" else 250_000,
+                "gas": gas_limit,
                 "maxFeePerGas": int(base_fee * 2 + priority_fee),
                 "maxPriorityFeePerGas": priority_fee,
             }
@@ -703,8 +708,11 @@ def process_adhoc_invoice(
             return res
         return {"status": "REJECTED_POLICY", "tx_hash": None}
 
-    # Check 4: Tier 2 Approval vs Tier 0 Auto-Pay
-    if amount >= approval_threshold:
+    # Check 4: Strict Unscheduled (Ad-Hoc) Invoice Logic
+    # Override the generous $40k scheduled threshold with a strict $0 threshold for off-cycle bills
+    strict_adhoc_threshold = 0.0  
+
+    if amount > strict_adhoc_threshold:
         action = {
             "action": "REQUEST_APPROVAL",
             "tier": 2,
@@ -712,7 +720,7 @@ def process_adhoc_invoice(
             "amount": amount,
             "memo": memo,
             "ref_tag": ref_tag,
-            "reason": f"Invoice ${amount:,.2f} >= approval threshold (${approval_threshold:,.2f}); queued on-chain for owner approval.",
+            "reason": f"Unscheduled invoice of ${amount:,.2f} automatically escalated to Tier 2 for founder approval.",
         }
     else:
         action = {
@@ -915,6 +923,27 @@ def run_all_tests():
 
     export_audit_and_reconciliation()
 
+    # ------------------------------------------------------------------
+    # TEST 8: Unscheduled Ad-Hoc Invoice Escalation
+    # ------------------------------------------------------------------
+    print(f"\n{'=' * 70}")
+    print("🔄 RUNNING TEST 8: Unscheduled Ad-Hoc Invoice Escalation")
+    print("🎯 Expected: REQUEST_APPROVAL (Tier 2) for $8,000 off-cycle invoice.")
+    print(f"📊 State -> Day: 10 (Off-cycle) | Invoice: $8,000 | Vendor: Allowlisted")
+    print(f"{'-' * 70}")
+
+    allowlisted_vendor = policy["obligations"][1]["payees"][0]["address"]
+    
+    process_adhoc_invoice(
+        payee=allowlisted_vendor,
+        amount=8000.0,
+        memo="Mid-month API overage fee",
+        policy=policy,
+        policy_hash=p_hash,
+        current_metrics={"liquid_balance": 1_192_000, "spent_today": 0},
+        force_onchain_if_rejected=False
+    )
+    print(f"{'=' * 70}\n")
 
 # ==============================================================================
 # CLI ENTRYPOINT
