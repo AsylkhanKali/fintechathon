@@ -9,3 +9,11 @@
 
 # Foundry broadcast lock files
 *.recovery.lock
+
+# Generated when the engine or dashboard runs
+__pycache__/
+decisions.db
+audit_decisions.csv
+reconciliation_report.csv
+pending_policy_changes.json
+founder_decisions.json
